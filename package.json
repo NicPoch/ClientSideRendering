@@ -1,0 +1,23 @@
+{
+  "name": "ClientSideRendering",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NicPoch/ClientSideRendering.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NicPoch/ClientSideRendering/issues"
+  },
+  "homepage": "https://github.com/NicPoch/ClientSideRendering#readme",
+  "devDependencies": {
+    "eslint": "^7.20.0"
+  }
+}
