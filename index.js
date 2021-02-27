@@ -1,8 +1,16 @@
+/**
+ * Objetos del Html
+ */
 const eventTable = document.getElementById("eventTable");
 const correlationTable=document.getElementById("correlationTable");
-
+/**
+ * url con la información
+ */
 const url="https://gist.githubusercontent.com/josejbocanegra/b1873c6b7e732144355bb1627b6895ed/raw/d91df4c8093c23c41dce6292d5c1ffce0f01a68b/newDatalog.json";
 
+/**
+ * carga la inforamción
+ */
 async function getInfo()
 {
     try 
@@ -17,6 +25,10 @@ async function getInfo()
     }
 }
 
+/**
+ * Carga la tabla de eventos
+ * @param {*} data los datos sobre los días
+ */
 async function loadEvents(data)
 {
     try 
@@ -53,7 +65,10 @@ async function loadEvents(data)
         throw error;    
     }
 }
-
+/**
+ * Crea la matriz inicial de correlacion en 0 para cada evento
+ * @param {*} data la información sobre los días
+ */
 async function getMatrix(data)
 {
     try 
@@ -75,6 +90,11 @@ async function getMatrix(data)
     }
 }
 
+/**
+ * calcula los valores de la matriz
+ * @param {*} matrix la matriz con información de cada evento
+ * @param {*} data información de cada día
+ */
 async function calculateMatrixValues(matrix,data)
 {
     try 
@@ -113,7 +133,10 @@ async function calculateMatrixValues(matrix,data)
         throw error;    
     }
 }
-
+/**
+ * calcula el coeficiente MCC para cada evento
+ * @param {*} matrix 
+ */
 async function MCC(matrix)
 {
     try 
@@ -137,7 +160,10 @@ async function MCC(matrix)
         throw error;    
     }
 }
-
+/**
+ * ordena los resultados de mayor a menor en correlación MCC
+ * @param {*} data 
+ */
 async function sort(data)
 {
     try 
@@ -150,7 +176,10 @@ async function sort(data)
         throw error;    
     }
 }
-
+/**
+ * carga la tabla de correlaciones
+ * @param {*} data 
+ */
 async function loadCorrelations(data)
 {
     try 
@@ -183,5 +212,7 @@ async function loadCorrelations(data)
         throw error;    
     }
 }
-
+/**
+ * Método asincrono que se corre
+ */
 getInfo().then((info)=>loadEvents(info)).then((data)=>getMatrix(data)).then((info)=>calculateMatrixValues(info["matrix"],info["data"])).then((data)=>MCC(data)).then((data)=>sort(data)).then((data)=>loadCorrelations(data)).catch((error)=>{throw error;});
